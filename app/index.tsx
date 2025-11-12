@@ -1,8 +1,11 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import "./global.css"
+import { useRouter } from 'expo-router'
 
 const Index = () => {
+  const router = useRouter()
+
   return (
     <View style={styles.container}>
       <View style={styles.card}>
@@ -13,10 +16,10 @@ const Index = () => {
         <Text style={styles.subtitle}>Your one-stop shop for gifts & jewellery</Text>
         
         <View style={styles.buttonRow}>
-          <TouchableOpacity style={[styles.button, styles.primaryButton]} activeOpacity={0.85}>
-            <Text style={styles.primaryButtonText}>Login</Text>
+          <TouchableOpacity style={[styles.button, styles.primaryButton]} activeOpacity={0.85} onPress={() => router.push('/(auth)/login')}>
+            <Text style={styles.primaryButtonText} >Login</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={[styles.button, styles.secondaryButton]} activeOpacity={0.85}>
+          <TouchableOpacity style={[styles.button, styles.secondaryButton]} activeOpacity={0.85} onPress={() => router.push('/(auth)/signup')}>
             <Text style={styles.secondaryButtonText}>Signup</Text>
           </TouchableOpacity>
         </View>
